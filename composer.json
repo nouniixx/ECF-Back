@@ -1,0 +1,19 @@
+{
+    "name": "sta-07/ecf_back",
+    "autoload": {
+        "psr-4": {
+            "Sta07\\EcfBack\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Noun",
+            "email": "noun.jancito@afpa-dev-pompey.fr"
+        }
+    ],
+    "require": {
+        "altorouter/altorouter": "^2.0",
+        "erusev/parsedown": "^1.7",
+        "twig/twig": "^3.23"
+    }
+}
