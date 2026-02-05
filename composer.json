@@ -2,7 +2,7 @@
     "name": "sta-07/ecf_back",
     "autoload": {
         "psr-4": {
-            "Sta07\\EcfBack\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [

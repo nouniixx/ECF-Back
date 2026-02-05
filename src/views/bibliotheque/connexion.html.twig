@@ -17,22 +17,30 @@
 
 <body>
     {% block body %}
-    <div class="flex justify-center mb-[200px]">
+    <div class="flex justify-center mb-[100px]">
         <h1 class="text-black font-semibold text-4xl ">Se connecter</h1>
     </div>
 
-    <form action="" method="post">
+    <div class="flex justify-center mb-[100px]">
+        <h3 class="text-red-600 text-xl font-semibold text">{{error}}</h3>
+    </div>
+
+    <form action="/bibliotheque/connexion" method="post">
         <div class="flex items-center flex-col mb-[20px]">
-            <label for="login">Pseudo :<input class="border border-black mb-[20px]" type="text" name="login" id="log"
+            <label for="user">Username :<input class="border border-black mb-[20px]" type="text" name="user"
                     placeholder="Entrez votre pseudo"></label>
             <label for="password">Mot de passe :<input class="border border-black" type="password" name="password"
-                    id="mdp" placeholder="Entrez votre mot de passe"></label>
+                    placeholder="Entrez votre mot de passe"></label>
         </div>
         <div class="flex justify-center">
-            <button class="cursor-pointer mr-2 font-semibold text-white bg-blue-600 rounded-md px-3 py-1" type="submit">Confirmer</button>
-            <button class="cursor-pointer ml-2 font-semibold text-white bg-red-600 rounded-md px-3 py-1">Annulez</button>
+            <button class="cursor-pointer mr-2 font-semibold text-white bg-blue-600 rounded-md px-3 py-1"
+                type="submit">Confirmer</button>
+            <button
+                class="cursor-pointer ml-2 font-semibold text-white bg-red-600 rounded-md px-3 py-1">Annulez</button>
         </div>
     </form>
+
+    
     {% endblock %}
 </body>
 {% block javascript %}
