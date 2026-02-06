@@ -20,27 +20,27 @@
     <div class="flex justify-center mb-[100px]">
         <h1 class="text-black font-semibold text-4xl ">Se connecter</h1>
     </div>
-
+    {% for errors in error %}
     <div class="flex justify-center mb-[100px]">
-        <h3 class="text-red-600 text-xl font-semibold text">{{error}}</h3>
+        <p class="text-red-600 text-xl font-semibold text">{{errors}}</p>
     </div>
-
+    {% endfor %}
     <form action="/bibliotheque/connexion" method="post">
         <div class="flex items-center flex-col mb-[20px]">
             <label for="user">Username :<input class="border border-black mb-[20px]" type="text" name="user"
-                    placeholder="Entrez votre pseudo"></label>
+                    placeholder="Entrez votre pseudo" value="{{user}}"></label>
             <label for="password">Mot de passe :<input class="border border-black" type="password" name="password"
                     placeholder="Entrez votre mot de passe"></label>
         </div>
         <div class="flex justify-center">
             <button class="cursor-pointer mr-2 font-semibold text-white bg-blue-600 rounded-md px-3 py-1"
                 type="submit">Confirmer</button>
-            <button
-                class="cursor-pointer ml-2 font-semibold text-white bg-red-600 rounded-md px-3 py-1">Annulez</button>
+            <a class="cursor-pointer ml-2 font-semibold text-white bg-red-600 rounded-md px-3 py-1"
+                href="{{url('home')}}">Annulez</a>
         </div>
     </form>
 
-    
+
     {% endblock %}
 </body>
 {% block javascript %}

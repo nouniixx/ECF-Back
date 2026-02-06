@@ -15,7 +15,7 @@ class UserManager
         $this->db  = ModelDatabase::getInstance()->getPDO();
     }
 
-    public function getUserPassword()
+    public function getUserAndPassword()
     {
         $pdo = $this->db;
         $stmt = $pdo->prepare("SELECT username, password FROM users WHERE username = :username");
@@ -29,22 +29,20 @@ class UserManager
     public function login()
     {
         global $twig;
-        $user = $this->getUserPassword();
+        $user = $this->getUserAndPassword();
 
         if ($user) {
             if (password_verify($_POST['password'], $user["password"])) {
-                // $_SESSION["user"] = true;
+                $_SESSION["user"] = true;
                 header("Location: home.php");
             } else {
                 echo $twig->render("bibliotheque/connexion.html.twig", [
-                    "error" => "Le mot de passe est erroné"
+                    "errors" => "Le mot de passe est erroné"
                 ]);
-                
             }
-        } else {
-            echo $twig->render("bibliotheque/connexion.html.twig", [
-                "error" => "Le login n'existe pas"
-            ]);
         }
+        echo $twig->render("bibliotheque/connexion.html.twig", [
+            "errors" => "Le login n'existe pas"
+        ]);
     }
 }

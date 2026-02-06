@@ -4,9 +4,9 @@ namespace App\model;
 
 
 class User {
-    private int $id;
-    private string $username;
-    private string $password;
-    private string $role;
+    public int $id;
+    public string $username;
+    public string $password;
+    public string $role;
 
 }
