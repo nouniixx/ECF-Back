@@ -20,11 +20,13 @@
     <div class="flex justify-center mb-[100px]">
         <h1 class="text-black font-semibold text-4xl ">Se connecter</h1>
     </div>
-    {% for errors in error %}
-    <div class="flex justify-center mb-[100px]">
-        <p class="text-red-600 text-xl font-semibold text">{{errors}}</p>
-    </div>
-    {% endfor %}
+    {% if errors is not empty %}
+        {% for error in errors %}
+        <div class="flex justify-center mb-[100px]">
+            <p class="text-red-600 text-xl font-semibold">{{error}}</p>
+        </div>
+        {% endfor %}
+    {% endif %}
     <form action="/bibliotheque/connexion" method="post">
         <div class="flex items-center flex-col mb-[20px]">
             <label for="user">Username :<input class="border border-black mb-[20px]" type="text" name="user"

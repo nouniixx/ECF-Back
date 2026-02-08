@@ -15,16 +15,17 @@ if (isset($_SESSION['user'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     // $user_manager->username = $user;
 
     // $user_manager->password = $pass;
 
     if (empty($user)) {
-        $errors = "Le username est requis";
+        $errors[] = "Le username est requis";
     }
 
     if (empty($pass)) {
-        $errors = "Le mot de passe est requis";
+        $errors[] = "Le mot de passe est requis";
     }
 
     if (empty($errors)) {
@@ -34,6 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 echo $twig->render("bibliotheque/connexion.html.twig", [
     "title" => "Se connecter",
-    var_dump($_SESSION['user']),
-
+    "errors" => $errors ?? [],
+    "user" => $user ?? ''
 ]);

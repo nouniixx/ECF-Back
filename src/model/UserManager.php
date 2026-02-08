@@ -21,7 +21,7 @@ class UserManager
         $stmt = $pdo->prepare("SELECT username, password FROM users WHERE username = :username");
         $stmt->bindValue("username", $_POST["user"], PDO::PARAM_STR);
         $stmt->execute();
-        $users = $stmt->fetch(PDO::FETCH_ASSOC, ModelUser::class);
+        $users = $stmt->fetch(PDO::FETCH_ASSOC); // ModelUser::class
         return $users;
     }
 
@@ -33,8 +33,9 @@ class UserManager
 
         if ($user) {
             if (password_verify($_POST['password'], $user["password"])) {
-                $_SESSION["user"] = true;
-                header("Location: home.php");
+                $_SESSION["user"] = $_POST['user'];
+                header("Location: /");
+                
             } else {
                 echo $twig->render("bibliotheque/connexion.html.twig", [
                     "errors" => "Le mot de passe est erroné"

@@ -7,6 +7,8 @@ $router->map("GET", "/bibliotheque/connexion", "/bibliotheque/connexion", "conne
 $router->map("GET", "/bibliotheque/livre", "/bibliotheque/livre", "livre");
 $router->map("GET", "/bibliotheque/auteur", "/bibliotheque/auteur", "auteur");
 
+$router->map("POST", "/bibliotheque/connexion", "/bibliotheque/connexion", "connexion_submit");
+
 addRouterToTwig($router);
 
 $match = $router->match();

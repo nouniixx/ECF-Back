@@ -24,7 +24,11 @@
                     </a></li>
                 <li class="mr-[10px]"><a href="{{ url('auteur') }}">Auteurs</a></li>
                 <li><a href="{{ url('livre') }}">Livres</a></li>
-                <li><a href="{{ url('connexion') }}">Login</a></li>
+                {% if user_session %}
+                    <li></li>
+                {% else %}
+                    <li><a href="{{ url('connexion') }}">Login</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
