@@ -16,10 +16,6 @@ if (isset($_SESSION['user'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // $user_manager->username = $user;
-
-    // $user_manager->password = $pass;
-
     if (empty($user)) {
         $errors[] = "Le username est requis";
     }

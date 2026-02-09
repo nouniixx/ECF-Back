@@ -29,6 +29,7 @@ class UserManager
     public function login()
     {
         global $twig;
+        $errors = [];
         $user = $this->getUserAndPassword();
 
         if ($user) {
@@ -37,13 +38,9 @@ class UserManager
                 header("Location: /");
                 
             } else {
-                echo $twig->render("bibliotheque/connexion.html.twig", [
-                    "errors" => "Le mot de passe est erroné"
-                ]);
+                $errors[] = "Mot de passe mauvais";
             }
         }
-        echo $twig->render("bibliotheque/connexion.html.twig", [
-            "errors" => "Le login n'existe pas"
-        ]);
+        $errors[] = "Login inexistant";
     }
 }

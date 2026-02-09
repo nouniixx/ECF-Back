@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace App\model;
 
 use PDO;
 use Database;
@@ -8,14 +8,14 @@ use Database;
 
 class Livre {
 
-    private int $id;
-    private string $titre;
-    private int $auteur_id;
-    private int $categorie_id;
-    private int $annee_publication;
-    private string $isbn;
-    private int $disponible;
-    private string $synopsis;
-    private int $like;
+    public int $id;
+    public string $titre;
+    public int $auteur_id;
+    public int $categorie_id;
+    public int $annee_publication;
+    public string $isbn;
+    public int $disponible;
+    public string $synopsis;
+    public int $like;
 
 }
