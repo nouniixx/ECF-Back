@@ -3,6 +3,8 @@
 namespace App\model;
 use App\model\Database as ModelDatabase;
 use App\model\Livre;
+use App\model\Auteur;
+use App\model\Categorie;
 use PDO;
 
 class LivreManager
@@ -16,8 +18,11 @@ class LivreManager
 
     public function getAllLivres()
     {
-        $query = $this->db->query("SELECT * FROM livres");
-        $all = $query->fetchAll(PDO::FETCH_CLASS, Livre::class);
+        $query = $this->db->query("SELECT * FROM livres LEFT JOIN categories ON livres.categorie_id = 
+        categories.id LEFT JOIN auteurs ON livres.auteur_id = auteurs.id");
+        $all = $query->fetchAll(PDO::FETCH_ASSOC);
         return $all;
     }
+
+    
 }
