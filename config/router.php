@@ -7,8 +7,10 @@ $router->map("GET", "/bibliotheque/connexion", "/bibliotheque/connexion", "conne
 $router->map("GET", "/bibliotheque/deconnexion", "/bibliotheque/deconnexion", "deconnexion");
 $router->map("GET", "/bibliotheque/livre", "/bibliotheque/livre", "livre");
 $router->map("GET", "/bibliotheque/auteur", "/bibliotheque/auteur", "auteur");
+$router->map("GET", "/bibliotheque/categorie", "/bibliotheque/categorie", "categorie");
 
 $router->map("POST", "/bibliotheque/connexion", "/bibliotheque/connexion", "connexion_submit");
+$router->map("POST", "/bibliotheque/categorie", "/bibliotheque/categorie", "categorie_create");
 
 addRouterToTwig($router);
 

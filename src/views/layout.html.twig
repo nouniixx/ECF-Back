@@ -19,11 +19,12 @@
     <header class="bg-black top-0 w-full mb-4">
         <nav class="bg-black text-white p-4 font-semibold">
             <ul class="flex flex-row">
-                <li class="mr-[38px] text-lg"><a href="#">
+                <li class="mr-[38px] text-lg"><a href="{{ url('home') }}">
                         <h2>BIBLIOTHÈQUE</h2>
                     </a></li>
                 <li class="mr-[10px]"><a href="{{ url('auteur') }}">Auteurs</a></li>
                 <li class="mr-[10px]"><a href="{{ url('livre') }}">Livres</a></li>
+                <li class="mr-[10px]"><a href="{{ url('categorie') }}">Catégories</a></li>
                 {% if user_session %}
                 <li class="mr-[10px]"><a href="{{ url('deconnexion') }}">Se déconnecter</a></li>
                 {% else %}

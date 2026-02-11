@@ -11,15 +11,15 @@
             <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2">{{livre.titre}}</div>
                 <p class="text-gray-700 text-base">
-                    {{livre.synopsis}}
+                    {{livre.synopsis|markdown_to_html|raw}}
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
                 <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{livre.auteurPrenom.prenom}} 
-                    {{livre.auteurNom.nom}}</span>
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{livre.auteur_prenom}} 
+                    {{livre.auteur_nom}}</span>
                 <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{livre.categorie.nom}}</span>
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{livre.categorie_nom}}</span>
                 <span
                     class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{livre.annee_publication}}</span>
             </div>

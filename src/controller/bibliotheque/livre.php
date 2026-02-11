@@ -1,26 +1,20 @@
 <?php
+
 use App\model\LivreManager;
-use App\model\Livre;
-use App\model\Categorie;
-use App\model\Auteur;
+use JasonGrimes\Paginator;
 
 $manager = new LivreManager;
-$livre = new Livre;
-$categorie = new Categorie;
-$auteur = new Auteur;
-$parsedown = new Parsedown;
-$bouquin = $manager->getAllLivres();
-$categorie_nom = $categorie->getNom();
-$auteur_prenom = $auteur->getPrenom();
-$auteur_nom = $auteur->getNom();
-// $synopsis = $livre->getSynopsis();
+$livres = $manager->getAllLivres();
+// $totalItems = 100;
+// $itemsPerPage = 10;
+// $currentPage = 1;
+// $urlPattern = '/foo/page/(:num)';
+
+// $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+
+
 
 echo $twig->render("bibliotheque/livre.html.twig", [
     "title" => "Livres",
-    "livres" => $bouquin, [ 
-        "categorie" => $categorie_nom,
-        "auteurPrenom" => $auteur_prenom,
-        "auteurNom" => $auteur_nom
-    ]
-    // "parsedown" => $parsedown->text($synopsis),
+    "livres" => $livres,
 ]);
